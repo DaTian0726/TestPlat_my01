@@ -1,0 +1,232 @@
+body {
+  height: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family: PingFang SC, Microsoft YaHei, Helvetica Neue, Helvetica,
+    Hiragino Sans GB, Arial, sans-serif;
+  background: #C3F0FE;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+label {
+  font-size: 0.3rem;
+  color: #FEFFFF;
+  margin-bottom: 0.225rem;
+}
+input{
+  outline: none;
+  border: none;
+}
+textarea{
+  height:1.5rem !important;
+  outline: none;
+  border: none;
+  padding-top: 0.25rem;
+}
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#app {
+  height: 100%;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+a,
+a:focus,
+a:hover {
+  cursor: pointer;
+  color: #fff;
+  text-decoration: none;
+}
+
+div:focus {
+  outline: none;
+}
+
+.clearfix :after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+   ::-webkit-input-placeholder {
+    color:#C8C8C8;
+    font-weight: 400;
+
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #C8C8C8;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+  color:#C8C8C8;
+}
+input::-moz-placeholder, textarea::-moz-placeholder {
+  color:#C8C8C8;
+}
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  color:#C8C8C8;
+}
+
+
+.container {
+  width: 100%;
+}
+.container img {
+  width: 100%;
+  display: block;
+}
+.operation{
+  text-align: center;
+  font-size: 0.38rem;
+  color: #1EB5D3;
+  text-align: center;
+}
+.phone{
+  width: 100%;
+  margin: 0.875rem 0rem;
+}
+.call-phone{
+  width: 60%;
+  margin:0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background:url("../images/button@3x.png") no-repeat;
+  background-size: 100% 100%;
+  font-size: 0.4rem;
+  color: #FEFFFF;
+  letter-spacing: 0.0275rem;
+  text-align: center;
+  padding: 0.2rem 0rem;
+  text-decoration: none;
+  border-radius: 10%;
+
+}
+.phone-icon{
+  width: 0.45rem;
+  margin-right: 0.1875rem;
+}
+
+.bottom{
+  width: 100%;
+  background:url("../images/bottom-bg@3x.png") no-repeat;
+  background-size: 100% 100%;
+  position: relative;
+  padding-bottom: 1.125rem;
+}
+.bottom .flower{
+  position: absolute;
+  top: 1.75rem;
+  right: 0.1rem;
+  display: block;
+  width: 0.65rem;
+  height: 0.9625rem;
+}
+
+.form-data{
+  width: 80%;
+  margin: 0.8rem auto 0rem auto;
+  text-align: center;
+}
+.column{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  position: relative;
+}
+.bottom-tip{
+  text-align: center;
+  font-size: 0.35rem;
+  color: #fff;
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+.ipt{
+  height: 0.75rem;
+  border-radius: 0.09rem;
+  margin-bottom: 0.425rem;
+  padding-left: 0.425rem;
+  /* width: 5.375rem; */
+}
+
+.submit{
+  background-image: linear-gradient(0deg, #F7922F 0%, #F9AA3B 91%);
+  box-shadow: 0 7px 14px 0 #0695B2;
+  border-radius: 29.5px;
+  border-radius: 29.5px;
+  outline: none;
+  border: none;
+  color: #fff;
+  height: 0.8625rem;
+  font-size: 0.325rem;
+  width: 4.65rem;
+  margin: 0 auto;
+}
+.copyright{
+  margin-top:0.6125rem;
+}
+.copyright p{
+  color: #fff;
+  text-align: center;
+  font-size: 0.25rem;
+  margin-bottom: 0.05rem;
+}
+.copyright p:last-child{
+  margin-bottom: 0;
+}
+.bottom-decorate{
+  display: inline-block;
+  width: 100%;
+  position: absolute;
+  bottom: 0rem;
+  left: 0rem;
+  cursor: pointer;
+}
+
+.readySubmit{
+  color: rgb(245, 229, 229);
+  opacity: 0.7;
+}
+.company_msg{
+  color: red;
+}
+.contacts_msg{
+  color: red;
+}
+.phone_msg{
+  color: red;
+}
+.submit_msg{
+  color: red;
+}
+.position{
+  position: absolute;
+  bottom: 0.0625rem;
+  left: 0;
+  font-size: 0.25rem;
+}
+#my-form-status{
+  color: #fff;
+}
