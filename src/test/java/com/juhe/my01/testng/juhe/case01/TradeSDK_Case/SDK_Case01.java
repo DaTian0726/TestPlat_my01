@@ -1,5 +1,6 @@
 package com.juhe.my01.testng.juhe.case01.TradeSDK_Case;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.juhe.my01.models.juhe.Trade_SDK;
 import com.juhe.my01.toapi.API_Version;
@@ -13,6 +14,7 @@ public class SDK_Case01 {
      * 生产： https://pay.ipaynow.cn/
      */
     public final String Test_URL="https://pay.ipaynow.cn/";
+//    public final String Test_URL="https://dby.ipaynow.cn/api/payment/";
 
     /**
      * 带版本号---支付宝（无不带版本号）----------SDK-H5支付
@@ -50,8 +52,8 @@ public class SDK_Case01 {
         JSONObject js= Trade_SDK.Model_SDK();
         js.put("canal", "信钛-微信-生产");//渠道
         js.put("url", Test_URL);//请求地址
-        js.put("appId", "154529574928316");//应用ID
-        js.put("appKey", "WlDKE5Lusboip5wsb0UYnV6cPEFMFTLV");//应用Key
+        js.put("appId", "153364179531679");//应用ID
+        js.put("appKey", "IinpIVLL23S0MJjvMZoIoBvdXiRoawBU");//应用Key
         js.put("payChannelType", "13");
         js.put("mhtLimitPay", "0");//0：禁用信用卡 1：允许使用信用卡  默认禁用信用卡
         //测试信用类支付用例：  1.  禁用信用卡  mhtLimitPay 为0   2.允许使用信用类支付   mhtLimitPay 为1  3.不传 mhtLimitPay
@@ -59,7 +61,8 @@ public class SDK_Case01 {
         js.put("mhtSubAppId","wx392e53828b385e65");
         js.put("consumerCreateIp","60.253.242.122");//用户端IP，微信时必填
         JSONObject res = API_Version.RequestApi(js);
-        System.out.println("请求结果：" + res);
+
+        System.out.println("请求结果：" + Undecode_util.res(JSON.toJSONString(res.getString("body"))));
     }
 
     /**

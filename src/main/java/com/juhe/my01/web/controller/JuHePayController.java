@@ -52,6 +52,8 @@ public class JuHePayController {
     @GetMapping("/activePay")
     public ModelAndView ActivePayGet(Map<String,Object> map){
         ActiveModel activeModel = new ActiveModel();
+        activeModel.setAppId("151142878420675");
+        activeModel.setAppKey("qiMP78S5HHvHEmFUcrr9kOG4wngkrXos");
         map.put("activeModel",activeModel);
         return new ModelAndView("juhe/activePay",map);
     }
