@@ -179,7 +179,7 @@ public class DeductController {
             }
         }
         SignServiceimp signServiceimp = new SignServiceimp();
-        Map result = signServiceimp.SignQuery(signModel);
+        Map result = signServiceimp.Unbundle(signModel);
         map.put("request",result.get("request"));
         map.put("response",result.get("response"));
         map.put("img",result.get("img"));

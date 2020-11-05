@@ -23,7 +23,7 @@ public class SignModel {
     private String url = "";
     private String appId = "";
     private String version = "1.0.0";
-    private String notifyUrl = "http://mock-api.com/dno4ooKX.mock/qqq";
+    private String notifyUrl = "http://ipaynow.natapp1.cc/asyn";
     private String mhtSubAppId = "";//非必填
     private String planId = "132263";
     private String payChannelType = "13";

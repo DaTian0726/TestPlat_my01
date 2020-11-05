@@ -29,6 +29,11 @@
                                 <button type="submit" class="btn btn-primary" name="submit" value="line">生产环境</button>
                             </div>
                         </div>
+                        <div>
+                            <div class="form-group" style="padding: 50px 0px 0px 0px">
+                                <a href="http://www.json.cn/" target="_blank">JSON格式转换链接</a>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

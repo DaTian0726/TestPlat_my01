@@ -26,7 +26,7 @@ public class WeChatPayModel {
     private String mhtOrderAmt = "1";
     private String mhtOrderDetail = "mhtOrderDetail";
     private String mhtOrderTimeOut = "3600";
-    private String notifyUrl = "http://mock-api.com/dno4ooKX.mock/qqq";
+    private String notifyUrl = "http://ipaynow.natapp1.cc/asyn";
     private String payChannelType = "13";
     private String mhtLimitPay = "";
     private String consumerId = "o0wwA0RsmX9AM_SZ8NBmdF9fNMl4";

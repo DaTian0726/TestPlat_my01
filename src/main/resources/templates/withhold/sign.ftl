@@ -13,7 +13,7 @@
     <div class="row">
         <#include "../common/menu.ftl">
         <h3 class="text-center text-info">
-            公有云-代付测试Demo</h3>
+            公有云-代扣测试Demo</h3>
         <div class="col-md-9" style="padding: 0px 0px 0px 0px;">
             <div id="tabs-302048" class="tabbable">
                 <ul class="nav nav-tabs">
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">签约方式（01公众号/02H5/03小程序）</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">签约方式（01公众号/02H5/03小程序/04微信SDK）</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="contractType" value="${(signModel.contractType)!''}"/>
                     </div>

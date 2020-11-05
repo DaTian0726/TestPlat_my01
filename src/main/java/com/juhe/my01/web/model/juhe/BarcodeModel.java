@@ -28,7 +28,7 @@ public class BarcodeModel {
     private String mhtOrderAmt = "1";
     private String mhtOrderDetail = "mhtOrderDetail";
     private String mhtOrderTimeOut = "3600";
-    private String notifyUrl = "http://mock-api.com/dno4ooKX.mock/qqq";
+    private String notifyUrl = "http://ipaynow.natapp1.cc/asyn";
     private String payChannelType = "12";
     private String mhtLimitPay = "";
 

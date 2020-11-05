@@ -36,7 +36,7 @@ public class RefundModel {
     private String appKey = "";
     private String funcode = "R001";
     private String amount = "1";
-    private String notifyUrl = "http://mock-api.com/dno4ooKX.mock/qqq";
+    private String notifyUrl = "http://ipaynow.natapp1.cc/asyn";
 
     public String getVersion() {
         return version;

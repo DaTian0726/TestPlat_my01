@@ -19,7 +19,7 @@ public class DeductModel {
     private String version = "1.0.0";
     private String privateKey = "";
     private String publicKey = "";
-    private String notifyUrl = "http://mock-api.com/0ZzRmXKe.mock/qqq";
+    private String notifyUrl = "http://ipaynow.natapp1.cc/asyn";
     private String url = "";
     private String mhtSubAppId = "";//非必填
     private String contractId = "";

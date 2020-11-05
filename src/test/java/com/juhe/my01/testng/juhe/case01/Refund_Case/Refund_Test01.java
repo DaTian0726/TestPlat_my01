@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
  *
  */
 public class Refund_Test01 {
-    private final String Test_URL="https://pay.ipaynow.cn/refund/refundOrder";
+    private final String Test_URL="http://192.168.99.54:8790/refund_access/refundOrder";
     /**
      * 退款，不带版本号
      */
@@ -52,12 +52,12 @@ public class Refund_Test01 {
     public void Test03() {
         JSONObject ob = Model_Refund.Refund_Var();
         ob.put("url", Test_URL);//请求地址   api_release/
-        ob.put("appId", "155011680219391");//应用ID 156134538804645
-        ob.put("appKey", "NrR3GtknOXKFBb6oOxXYeH6uwjLJ4drl");//应用Key rXuFW3RjJ4ppUSE0ItFcGXuo0tB8wM1D
+        ob.put("appId", "148972242878838");//应用ID 156134538804645
+        ob.put("appKey", "p1AJ0Bb7AwgBy3iPO1JjJsPspmXok8yz");//应用Key rXuFW3RjJ4ppUSE0ItFcGXuo0tB8wM1D
 //        ob.put("oriTransId", "c200216202009171943081568670");//支付原单进行退款  - 针对
-        ob.put("mhtOrderNo", "20200922153906Test"); //20200720162730Test
+        ob.put("mhtOrderNo", "20201029141205Test"); //20200720162730Test
 //        ob.put("mhtRefundNo", "20200709"+"B001");//仅仅撤销接口支持，支持相同撤销单号进行撤销
-        ob.put("amount", "1");
+        ob.put("amount", "5");
         ob.put("funcode", "R001");
         ob.put("reason", "退款");
         JSONObject res = ToRefund.RequestApi(ob);

@@ -15,7 +15,7 @@ import org.testng.annotations.Test;
  * 生产环境地址：    https://pay.ipaynow.cn/
  */
 public class TradeWap_WP001 {
-    private final  String Test_URL="https://pay.ipaynow.cn/";
+    private final  String Test_URL="https://dby.ipaynow.cn/api/payment/";
 
     //#######################################################################
     // #######################汇付天下渠道测试###################################
@@ -29,7 +29,7 @@ public class TradeWap_WP001 {
         ob.put("url", Test_URL);//请求地址
         ob.put("appId", "148972242878838");//应用ID
         ob.put("appKey", "p1AJ0Bb7AwgBy3iPO1JjJsPspmXok8yz");//应用Key
-        ob.put("payChannelType", "13");
+        ob.put("payChannelType", "12");
         ob.put("mhtLimitPay", "1");//0：禁用信用卡    1：允许使用信用卡    默认 可使用信用卡（不传）
         //测试信用类支付用例：  1.  禁用信用卡  mhtLimitPay 为0   2.允许使用信用类支付   mhtLimitPay 为1  3.不传 mhtLimitPay
         ob.put("version", "1.0.0");

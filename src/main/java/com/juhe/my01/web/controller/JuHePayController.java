@@ -247,4 +247,6 @@ public class JuHePayController {
     public ModelAndView MonitorGet(){
         return new ModelAndView("juhe/monitor");
     }
+
+
 }
