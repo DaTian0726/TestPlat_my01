@@ -41,8 +41,8 @@
                         <li><a href="/des" >清结算DES解密</a></li>
                         <li><a href="/url"  >Undecode工具</a></li>
                         <li><a href="#" >验签工具</a></li>
-                        <li><a href="https://cli.im/"  target="_blank">草料二维码</a></li>
-                        <li><a href="http://mock-api.com/app.html#!/mocker-dashboard" target="_blank">mock_api</a></li>
+<#--                        <li><a href="https://cli.im/"  target="_blank">草料二维码</a></li>-->
+<#--                        <li><a href="http://mock-api.com/app.html#!/mocker-dashboard" target="_blank">mock_api</a></li>-->
                         <li><a href="https://devtools.lilbaby.cn/dashboard#/idcard/index" target="_blank">coder烂笔头</a></li>
                     </ul>
                 </li>
