@@ -21,8 +21,8 @@ public class WeChat_WP001 {
  *  预发布环境测试地址：https://pay.ipaynow.cn/api_release/
  */
 
-    private final String Test_Url = "https://dby.ipaynow.cn/api/payment/";
-//    private final String Test_Url = "https://pay.ipaynow.cn/api_release/";
+//    private final String Test_Url = "https://dby.ipaynow.cn/api/payment/";
+    private final String Test_Url = "https://pay.ipaynow.cn/api_release/";
 //    private final String Test_Url = "https://ipaynow.acquire.cmbchina.com/";
     private final String appId_test = "155013581464329";  //156264485083050测试
     private final String appKey_test = "g3iKpS8gMTZ8pqD9dPQxQg2iGjKkdkDl"; //7X5j0wkKbmFhBCmC8kjAbY1LmxmecvEg测试
@@ -35,21 +35,28 @@ public class WeChat_WP001 {
         JSONObject js = WeChatModel.WcChat_applet();
         //覆盖之前的js参数
         js.put("canal","招商银行-微信小程序");
-        js.put("url","https://pay.ipaynow.cn/payment/test_release/testApplet");
-        js.put("appId","160431203142577");//157888527897789预发布
-        js.put("appKey","igj9wGYKCBonUzNUMwe4djW0lsO7hgWW");//UYdJdFwHzBuyoRUFf6is4ffjYFe7l9It预发布
-        js.put("payChannelType","12"); //小程序只支持微信13 和微众小钱包101
+        js.put("url","https://cmb-test-payapi.ipaynow.cn/api/payment/");
+        js.put("appId","154115398389597");//157888527897789预发布
+        js.put("appKey","tUKZEA8xo0XgqEo4Uouadm3EsgONooUn");//UYdJdFwHzBuyoRUFf6is4ffjYFe7l9It预发布
+        js.put("payChannelType","13"); //微信13和支付宝12
         js.put("mhtLimitPay","1");//是否限制信用卡
         js.put("version","1.0.0");//版本
         js.put("mhtOrderAmt","1");//金额 单位：1/分
-        //测试监控使用
-//        js.put("consumerId","1");
+
+        //支付宝配置
+//        js.put("mhtSubAppId","");
+//        js.put("consumerId","2088912927599908");//支付宝
+        //微信配置
+        js.put("mhtSubAppId","wx694abcd10bf94a26");
+        js.put("consumerId","o0wwA0RsmX9AM_SZ8NBmdF9fNMl4");//微信
+
         js.put("notifyUrl","http://mock-api.com/dno4ooKX.mock/qqq"); //http://mock-api.com/dno4ooKX.mock/qqq
 //        js.put("frontNotifyUrl","http://posp.ipaynow.cn:10808/mobilewapH/frontnotify");
         js.put("mhtOrderTimeOut","3600");
 
         //发起请求
         JSONObject resp = API_Version.RequestApi(js);
+        System.out.println(JSON.toJSONString(js,true));
         System.out.println("---------------------------  返回结果为  ---------------------------");
         String result = Undecode_util.res(resp.getString("body"));
 //        System.out.println(result);

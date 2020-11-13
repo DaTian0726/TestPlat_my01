@@ -1,7 +1,6 @@
 package com.juhe.my01.web.service.juhe;
 
 import com.juhe.my01.utils.GetNowTime;
-import com.juhe.my01.web.controller.DeviceEnum;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.annotations.Test;
 
@@ -38,6 +37,15 @@ public class NotifyService {
         }
         return sb.toString();
     }
+
+
+    /**
+     * 解析异步通知返回报文并展示为对应格式模板
+     * @param transId
+     * @param mhtOrderNo
+     * @param list
+     * @return
+     */
 
     public List<String> ResultTransShow(String transId, String mhtOrderNo, List<String> list){
         Map<String,String> resultMap = new HashMap<String ,String>();
@@ -84,10 +92,16 @@ public class NotifyService {
                 map.put("deviceType","小程序系统");
                 break;
             case "0603" :
-                map.put("deviceType","公众号系统");
+                map.put("deviceType","新立码卡牌");
+                break;
+            case "0600" :
+                map.put("deviceType","微信公众号");
                 break;
             case "0601" :
                 map.put("deviceType","H5系统");
+                break;
+            case "11" :
+                map.put("deviceType","POS系统");
                 break;
         }
 
@@ -97,6 +111,9 @@ public class NotifyService {
                 break;
             case "13" :
                 map.put("payChannelType","微信");
+                break;
+            case "27" :
+                map.put("payChannelType","银联");
                 break;
         }
 

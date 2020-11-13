@@ -55,7 +55,7 @@ public class WeChatModel {
         js.put("consumerId","o0wwA0RsmX9AM_SZ8NBmdF9fNMl4");//o0wwA0RsmX9AM_SZ8NBmdF9fNMl4
         js.put("mhtLimitPay","");//0表示限制，1表示不限制
         js.put("mhtGoodsTag","");
-        js.put("mhtSignType","MD5");//RSA
+        js.put("mhtSignType","RSA");//RSA
         js.put("mhtSignature","");
         return js;
     }
