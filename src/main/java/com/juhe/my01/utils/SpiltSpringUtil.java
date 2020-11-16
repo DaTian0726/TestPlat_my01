@@ -1,6 +1,8 @@
 package com.juhe.my01.utils;
 
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.testng.annotations.Test;
 
 public class SpiltSpringUtil {
@@ -22,8 +24,19 @@ public class SpiltSpringUtil {
         return "";
     }
 
+    public static JSON StringToJson(String a){
+        JSONObject jsonObject = new JSONObject();
+        String[] resp = a.split("&");
+        for (int i = 0;i<resp.length;i++){
+            String[] res = resp[i].split("=");
+            jsonObject.put(res[0],res[1]);
+        }
+        return jsonObject;
+    }
+
     @Test
     public void test(){
-        System.out.println(JsonSys_resp("funcode=WP001&signature=1ba50c549ad2a909821721a4249b33c0&responseTime=20200903161647&mhtOrderNo=20200903161646Test&appId=148972242878838&signType=MD5&nowPayOrderNo=c200601202009031616453785785&tn=https://qr.alipay.com/bax083828y8cptsvcqzg002b&version=1.0.0&responseCode=A001&responseMsg=E000#成功[成功]"));
+        System.out.println(JSON.toJSONString(StringToJson("funcode=WP001&signature=1ba50c549ad2a909821721a4249b33c0&responseTime=20200903161647&mhtOrderNo=20200903161646Test&appId=148972242878838&signType=MD5&nowPayOrderNo=c200601202009031616453785785&tn=https://qr.alipay.com/bax083828y8cptsvcqzg002b&version=1.0.0&responseCode=A001&responseMsg=E000#成功[成功]"),true));
+
     }
 }

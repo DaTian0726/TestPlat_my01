@@ -18,17 +18,19 @@
                         <span class="caret"></span></a>
                 </li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">招商银行
+                    <a href="/CMBActivePay" class="dropdown-toggle" data-toggle="dropdown">招商银行
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li class="dropdown-header">招商云交易</li>
-                        <li><a href="/CMBActivePay" >主扫系统</a></li>
-                        <li><a href="/CMBBarcodePay" >被扫系统</a></li>
-                        <li><a href="/CMBRefund" >退款系统</a></li>
-                        <li><a href="/CMBWeChatPay" >小程序系统</a></li>
-                        <li><a href="/CMBJuHeMaPay" >聚合动态码</a></li>
-                        <li class="divider"></li>
+<#--                        <li class="dropdown-header">招商云交易</li>-->
+<#--                        <li><a href="/CMBActivePay" >主扫系统</a></li>-->
+<#--                        <li><a href="/CMBBarcodePay" >被扫系统</a></li>-->
+<#--                        <li><a href="/CMBTradePay" >H5系统</a></li>-->
+<#--                        <li><a href="/CMBRefund" >退款系统</a></li>-->
+<#--                        <li><a href="/CMBWeChatPay" >小程序系统</a></li>-->
+<#--                        <li><a href="/CMBJuHeMaPay" >聚合动态码</a></li>-->
+<#--                        <li class="divider"></li>-->
                         <li class="dropdown-header">招商系统</li>
+                        <li><a href="http://192.168.101.102:8081/cmb_dubbo_http_adapter/app_biz_center" target="_blank">应用中心测试</a></li>
                         <li><a href="https://mch.aggreg.cmbchina.com/cmb_dubbo_http_adapter/" target="_blank">应用中心生产</a></li>
                         <li><a href="https://mch.aggreg.cmbchina.com/login" target="_blank">招商商户后台生产</a></li>
                         <li><a href="https://op.aggreg.cmbchina.com/login" target="_blank">招商运营后台生产</a></li>

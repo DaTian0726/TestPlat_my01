@@ -20,7 +20,7 @@
                 <form class="form-horizontal" role="form" action="des" method="post">
                     <div class="form-group">
                         <label for="verifySign">同步报文内容:</label>
-                        <textarea class="form-control" rows="20" id="verifySign" name="verifySign" autocomplete="off" placeholder="加密报文">${(des)!''}</textarea>
+                        <textarea class="form-control" rows="20" id="content" name="content" autocomplete="off" placeholder="加密报文">${(des)!''}</textarea>
                         <b>解密秘钥：</b>
                         <input type="text" class="form-control" id="key" name="key" autocomplete="off" placeholder="此处不需要填写，如更换秘钥时填写，已内置秘钥，点击下方按钮即可！">
                         <div class="form-group">

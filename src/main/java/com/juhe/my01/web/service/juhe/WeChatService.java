@@ -66,9 +66,8 @@ public class WeChatService {
         //封装数据报文
         Map<String, String> result = new HashMap<>();
         result.put("request", JSON.toJSONString(wp001, true));
-        System.out.println(response);
-        result.put("response", response);
-        result.put("state", response);
+        result.put("response", JSON.toJSONString(SpiltSpringUtil.StringToJson(response),true));
+        result.put("state","");
         result.put("img", SpiltSpringUtil.JsonSys_resp(img));
         return result;
     }

@@ -12,12 +12,23 @@
 <div class="container" id="content">
     <div class="row">
         <#include "../common/menu.ftl">
-        <div class="col-md-9" style="padding: 0px 0px 0px 0px;">
-            <h5>请求参数：</h5>
-            <p id="request_show" style="width: 100%;"><span>${request}</span></p>
-            <HR align=center width=100% color=#987cb9 SIZE=1>
-            <h5>返回参数：</h5>
-            <p id="response_show" style="width: 100%;"><span style="width: 500px">${response}</span></p>
+        <div class="col-md-10" style="padding: 0px 0px 0px 0px;">
+            <div class="row clearfix">
+            <div class="col-md-5 column">
+                <h5>请求参数：</h5>
+                <#--            <p id="request_show" style="width: 100%;"><span>${request}</span></p>-->
+                <textarea id="content" name="content" rows="20" cols="120" class="form-control" style="width: 100%;height: 40%">
+                ${request}
+            </textarea>
+            </div>
+            <div class="col-md-5 column">
+                <h5>返回参数：</h5>
+                <textarea id="content" name="content" rows="20" cols="120" class="form-control" style="width: 100%;height: 40%">${response}</textarea>
+                <#--            <p id="response_show" style="width: 100%;"><span style="width: 500px"></span></p>-->
+            </div>
+            </div>
+<#--            -->
+<#--            <HR align=center width=100% color=#987cb9 SIZE=1>-->
             <HR align=center width=100% color=#987cb9 SIZE=1>
             <#if img!=''>
                 <#if state == '0'>

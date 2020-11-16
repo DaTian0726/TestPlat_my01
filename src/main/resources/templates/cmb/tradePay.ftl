@@ -11,12 +11,12 @@
 <#include "../common/top.ftl">
 <div class="container" id="content">
     <div class="row">
-        <#include "../common/menu.ftl">
+        <#include "menu.ftl">
         <div class="col-md-9" style="padding: 0px 0px 0px 0px;">
             <h3 class="text-center text-info">
-                退款测试Demo</h3>
+                H5测试Demo</h3>
             <HR align=center width=100% color=#987cb9 SIZE=1>
-            <form class="form-horizontal" role="form" action="refund" method="post">
+            <form class="form-horizontal" role="form" action="CMBTradePay" method="post">
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-2 control-label">环境选择</label>
                     <div class="col-sm-4">
@@ -37,55 +37,74 @@
                 <div class="form-group">
                     <label for="inputEmail3" class="col-sm-3 control-label">应用ID</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="appId" value="${(refundModel.appId)!''}"/>
+                        <input type="text" class="form-control" name="appId" value="${(tradeModel.appId)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label">应用秘钥</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="appKey" value="${(refundModel.appKey)!''}"/>
+                        <input type="text" class="form-control" name="appKey" value="${(tradeModel.appKey)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">现在支付流水号</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">现在支付支付网关</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="oriTransId" value="${(refundModel.oriTransId)!''}"/>
+                        <input type="text" class="form-control" name="payChannelType" value="${(tradeModel.payChannelType)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">商户订单号(比原单优先级弱)</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">用户创建IP(微信时必填)</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="mhtOrderNo" value="${(refundModel.mhtOrderNo)!''}"/>
+                        <input type="text" class="form-control" name="consumerCreateIp" value="${(tradeModel.consumerCreateIp)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">退款金额（分）</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">订单名称</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="amount" value="${(refundModel.amount)!''}"/>
+                        <input type="text" class="form-control" name="mhtOrderName" value="${(tradeModel.mhtOrderName)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">退款单号</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">订单金额（分）</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="mhtRefundNo" value="${(refundModel.mhtRefundNo)!''}"/>
+                        <input type="text" class="form-control" name="mhtOrderAmt" value="${(tradeModel.mhtOrderAmt)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
-                    <label for="inputPassword3" class="col-sm-3 control-label">功能码（R001退款/R002撤销）</label>
+                    <label for="inputPassword3" class="col-sm-3 control-label">订单详情</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="funcode" value="${(refundModel.funcode)!''}"/>
+                        <input type="text" class="form-control" name="mhtOrderDetail" value="${(tradeModel.mhtOrderDetail)!''}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label">超时时间</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="mhtOrderTimeOut" value="${(tradeModel.mhtOrderTimeOut)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label">商户后台通知地址</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="notifyUrl" value="${(refundModel.notifyUrl)!''}"/>
+                        <input type="text" class="form-control" name="notifyUrl" value="${(tradeModel.notifyUrl)!''}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label">是否限制银行卡（0/1）</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="mhtLimitPay" value="${(tradeModel.mhtLimitPay)!''}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label">输出格式（0/1/4/6）</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="outputType" value="${(tradeModel.outputType)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="inputPassword3" class="col-sm-3 control-label">版本号</label>
                     <div class="col-sm-9">
-                        <input type="text" class="form-control" name="version" value="${(refundModel.version)!''}"/>
+                        <input type="text" class="form-control" name="version" value="${(tradeModel.version)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">

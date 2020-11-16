@@ -1,5 +1,6 @@
 package com.juhe.my01.web.controller;
 
+import com.juhe.my01.utils.EnumTransUtil;
 import com.juhe.my01.web.model.juhe.*;
 import com.juhe.my01.web.service.juhe.*;
 import org.springframework.web.bind.annotation.*;
@@ -35,25 +36,14 @@ public class JuHePayController {
     @PostMapping("/activePay")
     public ModelAndView ActivePayPost(HttpServletRequest request, HttpServletResponse response , ActiveModel activeModel, Map<String,Object> map){
         ActiveService activeService = new ActiveService();
-        if(request.getParameter("submit").equals("test")){
-            activeModel.setUrl("https://dby.ipaynow.cn/api/payment/");
-        }else if (request.getParameter("submit").equals("pre")){
-            activeModel.setUrl("https://pay.ipaynow.cn/api_release/");
-        }else if(request.getParameter("submit").equals("line")){
-            activeModel.setUrl("https://pay.ipaynow.cn/");
-        }
-        result = activeService.Active(activeModel);
-        map.put("request",result.get("request"));
-        map.put("response",result.get("response"));
-        map.put("img",result.get("img"));
-        map.put("state",result.get("state"));
-        return new ModelAndView("common/result",map);
+        activeModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(activeService.Active(activeModel)));
     }
     @GetMapping("/activePay")
     public ModelAndView ActivePayGet(Map<String,Object> map){
         ActiveModel activeModel = new ActiveModel();
-        activeModel.setAppId("151142878420675");
-        activeModel.setAppKey("qiMP78S5HHvHEmFUcrr9kOG4wngkrXos");
+        activeModel.setAppId("151796928333342");
+        activeModel.setAppKey("HvqggU9C97XLvUsjX1g3tRSU1UDs6xkD");
         map.put("activeModel",activeModel);
         return new ModelAndView("juhe/activePay",map);
     }
@@ -69,23 +59,15 @@ public class JuHePayController {
     @PostMapping("/barcodePay")
     public ModelAndView BarcodePayPost(HttpServletRequest request, HttpServletResponse response , BarcodeModel barcodeModel, Map map){
         BarcodeService barcodeService = new BarcodeService();
-        if(request.getParameter("submit").equals("test")){
-            barcodeModel.setUrl("https://dby.ipaynow.cn/api/payment/");
-        }else if (request.getParameter("submit").equals("pre")){
-            barcodeModel.setUrl("https://pay.ipaynow.cn/api_release/");
-        }else if(request.getParameter("submit").equals("line")){
-            barcodeModel.setUrl("https://pay.ipaynow.cn/");
-        }
-        result = barcodeService.Barcode(barcodeModel);
-        map.put("request",result.get("request"));
-        map.put("response",result.get("response"));
-        map.put("img",result.get("img"));
-        map.put("state","");
-        return new ModelAndView("common/result",map);
+        barcodeModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(barcodeService.Barcode(barcodeModel)));
     }
     @GetMapping("/barcodePay")
     public ModelAndView BarcodePayGet(Map<String,Object> map){
-        map.put("barcodeModel",new BarcodeModel());
+        BarcodeModel barcodeModel = new BarcodeModel();
+        barcodeModel.setAppId("151796932500416");
+        barcodeModel.setAppKey("4jl50MQ9hkH2S8y63rf1zwW7rhJ9MpBd");
+        map.put("barcodeModel",barcodeModel);
         return new ModelAndView("juhe/barcodePay",map);
     }
 
@@ -100,39 +82,25 @@ public class JuHePayController {
     @PostMapping("/mediaPay")
     public ModelAndView MediaPayPost(HttpServletRequest request, HttpServletResponse response , MediaModel mediaModel , Map map){
         MediaService mediaService = new MediaService();
-        if(request.getParameter("submit").equals("test")){
-            mediaModel.setUrl("https://dby.ipaynow.cn/api/payment/");
-        }else if (request.getParameter("submit").equals("pre")){
-            mediaModel.setUrl("https://pay.ipaynow.cn/api_release/");
-        }else if(request.getParameter("submit").equals("line")){
-            mediaModel.setUrl("https://pay.ipaynow.cn/");
-        }
-        result = mediaService.Media(mediaModel);
-        map.put("request",result.get("request"));
-        map.put("response",result.get("response"));
-        map.put("img",result.get("img"));
-        map.put("state",result.get("state"));
-        return new ModelAndView("common/result",map);
+        mediaModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(mediaService.Media(mediaModel)));
     }
     @GetMapping("/mediaPay")
     public ModelAndView MediaPayGet(Map map){
-        map.put("mediaModel",new MediaModel());
+        MediaModel mediaModel = new MediaModel();
+        mediaModel.setAppId("160517818332835");
+        mediaModel.setAppKey("tLzNOPEubRbyTJRVPN7GbqIgGcHavJtJ");
+        map.put("mediaModel",mediaModel);
         return new ModelAndView("juhe/mediaPay",map);
     }
 
     /**
      * 卡牌业务系统逻辑
-     * @param request
-     * @param response
-     * @param activeModel
+     * @param state
+     * @param map
      * @return
      */
-
-    @PostMapping("/cardPay")
-    public ModelAndView CardPayPost(HttpServletRequest request, HttpServletResponse response ,ActiveModel activeModel){
-        return new ModelAndView("juhe/cardPay");
-    }
-    @GetMapping("/cardPay")
+    @RequestMapping("/cardPay")
     public ModelAndView CardPayGet(@RequestParam("state") String state,Map map){
         map.put("state",state);
         return new ModelAndView("juhe/cardPay",map);
@@ -149,19 +117,8 @@ public class JuHePayController {
     @PostMapping("/tradePay")
     public ModelAndView TradePayPost(HttpServletRequest request, HttpServletResponse response , TradeModel tradeModel, Map map){
         TradeService tradeService = new TradeService();
-        if(request.getParameter("submit").equals("test")){
-            tradeModel.setUrl("https://dby.ipaynow.cn/api/payment/");
-        }else if (request.getParameter("submit").equals("pre")){
-            tradeModel.setUrl("https://pay.ipaynow.cn/api_release/");
-        }else if(request.getParameter("submit").equals("line")){
-            tradeModel.setUrl("https://pay.ipaynow.cn/");
-        }
-        result = tradeService.Trade(tradeModel);
-        map.put("request",result.get("request"));
-        map.put("response",result.get("response"));
-        map.put("img",result.get("img"));
-        map.put("state",result.get("state"));
-        return new ModelAndView("common/result",map);
+        tradeModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(tradeService.Trade(tradeModel)));
     }
     @GetMapping("/tradePay")
     public ModelAndView TradePayGet(Map map){
@@ -180,19 +137,8 @@ public class JuHePayController {
     @PostMapping("/refund")
     public ModelAndView RefundPost(HttpServletRequest request, HttpServletResponse response , RefundModel refundModel, Map map){
         RefundService refundService = new RefundService();
-        if(request.getParameter("submit").equals("test")){
-            refundModel.setUrl("http://192.168.99.54:8790/refund_access/refundOrder");
-        }else if (request.getParameter("submit").equals("pre")){
-            refundModel.setUrl("https://pay.ipaynow.cn/api_release/refund/refundOrder");
-        }else if(request.getParameter("submit").equals("line")){
-            refundModel.setUrl("https://pay.ipaynow.cn/refund/refundOrder");
-        }
-        result = refundService.Refund(refundModel);
-        map.put("request",result.get("request"));
-        map.put("response",result.get("response"));
-        map.put("img",result.get("img"));
-        map.put("state","");
-        return new ModelAndView("common/result",map);
+        refundModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(refundService.Refund(refundModel)));
     }
     @GetMapping("/refund")
     public ModelAndView RefundGet(Map map){
@@ -211,19 +157,8 @@ public class JuHePayController {
     @PostMapping("/wechatPay")
     public ModelAndView WeChatPayPost(HttpServletRequest request, HttpServletResponse response , WeChatPayModel weChatPayModel,Map map){
         WeChatService weChatService = new WeChatService();
-        if(request.getParameter("submit").equals("test")){
-            weChatPayModel.setUrl("https://dby.ipaynow.cn/api/payment/");
-        }else if (request.getParameter("submit").equals("pre")){
-            weChatPayModel.setUrl("https://pay.ipaynow.cn/api_release/");
-        }else if(request.getParameter("submit").equals("line")){
-            weChatPayModel.setUrl("https://pay.ipaynow.cn/");
-        }
-        result = weChatService.WeChatPay(weChatPayModel);
-        map.put("request",result.get("request"));
-        map.put("response",result.get("response"));
-        map.put("img",result.get("img"));
-        map.put("state",result.get("state"));
-        return new ModelAndView("common/result",map);
+        weChatPayModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(weChatService.WeChatPay(weChatPayModel)));
     }
     @GetMapping("/wechatPay")
     public ModelAndView WeChatPayGet(Map map){
@@ -248,5 +183,17 @@ public class JuHePayController {
         return new ModelAndView("juhe/monitor");
     }
 
+    /**
+     * 通用封装
+     * @param map
+     * @return
+     */
+    public Map InitMap(Map map){
+        map.put("request",map.get("request"));
+        map.put("response",map.get("response"));
+        map.put("img",map.get("img"));
+        map.put("state",map.get("state"));
+        return map;
+    }
 
 }

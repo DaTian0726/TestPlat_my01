@@ -57,7 +57,6 @@ public class CMBController {
         map.put("activeModel",activeModel);
         return new ModelAndView("cmb/activePay",map);
     }
-
     /**
      * 被扫业务系统处理逻辑
      * @param request
@@ -194,6 +193,43 @@ public class CMBController {
         weChatPayModel.setAppKey("1uhtXpWBOOc4i7TlaGYmo18REZXoCSAx");
         map.put("wechatModel",weChatPayModel);
         return new ModelAndView("cmb/wechatPay",map);
+    }
+
+    /**
+     * 主扫业务处理逻辑
+     * @param request
+     * @param response
+     * @param tradeModel
+     * @return
+     */
+    @PostMapping("/CMBTradePay")
+    public ModelAndView TradePayPost(HttpServletRequest request, HttpServletResponse response , TradeModel tradeModel, Map<String,Object> map){
+
+        System.out.println(request.getParameter("URL"));
+        System.out.println(request.getParameter("Service"));
+
+        TradeService tradeService = new TradeService();
+        if(request.getParameter("submit").equals("test")){
+            tradeModel.setUrl("https://cmb-test-payapi.ipaynow.cn/api/payment/");
+        }else if (request.getParameter("submit").equals("pre")){
+            tradeModel.setUrl("https://ipaynow.acquire.cmbchina.com/api_release/");
+        }else if(request.getParameter("submit").equals("line")){
+            tradeModel.setUrl("https://ipaynow.acquire.cmbchina.com/");
+        }
+        result = tradeService.Trade(tradeModel);
+        map.put("request",result.get("request"));
+        map.put("response",result.get("response"));
+        map.put("img",result.get("img"));
+        map.put("state",result.get("state"));
+        return new ModelAndView("cmb/tradePay",map);
+    }
+    @GetMapping("/CMBTradePay")
+    public ModelAndView TradePayGet(Map<String,Object> map){
+        TradeModel tradeModel = new TradeModel();
+        tradeModel.setAppId("148972242878838");
+        tradeModel.setAppKey("p1AJ0Bb7AwgBy3iPO1JjJsPspmXok8yz");
+        map.put("tradeModel",tradeModel);
+        return new ModelAndView("cmb/tradePay",map);
     }
 
 }

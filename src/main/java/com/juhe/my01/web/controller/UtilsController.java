@@ -1,5 +1,6 @@
 package com.juhe.my01.web.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.juhe.my01.utils.EncryDecryUtils;
 import com.juhe.my01.utils.Undecode_util;
 import org.springframework.web.bind.annotation.*;
@@ -45,19 +46,19 @@ public class UtilsController {
             if(key.equals("")){
                 key = "doxfqtoh69gosffefmqcuaqk";
                 String result = EncryDecryUtils.decryptFromBase64DES(key, Undecode_util.res(verifySign));//测试环境
-                map.put("des",result);
+                map.put("des", JSON.toJSONString(result, true));
             }else {
                 String result = EncryDecryUtils.decryptFromBase64DES(key, Undecode_util.res(verifySign));//测试环境
-                map.put("des",result);
+                map.put("des", JSON.toJSONString(result, true));
             }
         }else {
             if(key.equals("")){
                 key = "o751qdkkv4ymc6xohpsl1qmw";
                 String result = EncryDecryUtils.decryptFromBase64DES(key, Undecode_util.res(verifySign));//生产环境
-                map.put("des",result);
+                map.put("des", JSON.toJSONString(result, true));
             }else {
                 String result = EncryDecryUtils.decryptFromBase64DES(key, Undecode_util.res(verifySign));//生产环境
-                map.put("des",result);
+                map.put("des", JSON.toJSONString(result, true));
             }
         }
 

@@ -54,8 +54,9 @@ public class BarcodeService {
         //封装数据报文
         Map<String,String> result = new HashMap<>();
         result.put("request", JSON.toJSONString(js,true));
-        result.put("response",response);
+        result.put("response", JSON.toJSONString(SpiltSpringUtil.StringToJson(response),true));
         result.put("img", SpiltSpringUtil.JsonSys_resp(response));
+        result.put("state","");
         return result;
     }
 

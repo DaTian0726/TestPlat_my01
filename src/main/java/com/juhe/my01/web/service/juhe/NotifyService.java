@@ -1,8 +1,7 @@
 package com.juhe.my01.web.service.juhe;
 
-import com.juhe.my01.utils.GetNowTime;
+import com.juhe.my01.utils.EnumTransUtil;
 import org.apache.commons.lang3.StringUtils;
-import org.testng.annotations.Test;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -38,7 +37,6 @@ public class NotifyService {
         return sb.toString();
     }
 
-
     /**
      * 解析异步通知返回报文并展示为对应格式模板
      * @param transId
@@ -63,86 +61,13 @@ public class NotifyService {
             //拼接结果字符
             if(StringUtils.isNotBlank(transId) || StringUtils.isNotBlank(mhtOrderNo)){
                 if(resultMap.get("nowPayOrderNo").equals(transId) || resultMap.get("mhtOrderNo").equals(mhtOrderNo)){
-                    resList.add(ResultShow(resultMap));
+                    resList.add(EnumTransUtil.ResultShow(resultMap));
                 }
             }else {
-                resList.add(ResultShow(resultMap));
+                resList.add(EnumTransUtil.ResultShow(resultMap));
             }
         }
         //返回显示
         return resList;
-    }
-
-    public String ResultShow(Map map){
-
-        switch ((String) map.get("deviceType")){
-            case "01" :
-                map.put("deviceType","手机SDK系统");
-                break;
-            case "05" :
-                map.put("deviceType","被扫系统");
-                break;
-            case "08" :
-                map.put("deviceType","主扫系统");
-                break;
-            case "20" :
-                map.put("deviceType","聚合码系统");
-                break;
-            case "14" :
-                map.put("deviceType","小程序系统");
-                break;
-            case "0603" :
-                map.put("deviceType","新立码卡牌");
-                break;
-            case "0600" :
-                map.put("deviceType","微信公众号");
-                break;
-            case "0601" :
-                map.put("deviceType","H5系统");
-                break;
-            case "11" :
-                map.put("deviceType","POS系统");
-                break;
-        }
-
-        switch ((String) map.get("payChannelType")){
-            case "12" :
-                map.put("payChannelType","支付宝");
-                break;
-            case "13" :
-                map.put("payChannelType","微信");
-                break;
-            case "27" :
-                map.put("payChannelType","银联");
-                break;
-        }
-
-        //模板：2020-11-06 17:56:55 【XXX系统】-【交易号为XXX】-【订单号为XXX】使用XXX支付XXX元 -- 商户异步通知接受正常
-        return GetNowTime.ToNowTime((String)map.get("mhtOrderStartTime"))
-                + " "
-                + "【" + map.get("deviceType") + "】"
-                + "-"
-                + "【交易号为" + map.get("nowPayOrderNo") + "】"
-                + "-"
-                + "【订单号为" + map.get("mhtOrderNo") + "】"
-                + ""
-                + "使用" + map.get("payChannelType") + "支付"
-                + ""
-                + map.get("oriMhtOrderAmt") + "元"
-                + " -- 商户异步通知接受正常";
-    }
-
-
-    @Test
-    public void TestA(){
-        List<String> list =  new ArrayList();
-        list.add("appId=151142878420675&channelOrderNo=2020110622001499901452641387&deviceType=08&discountAmt=0&funcode=N001&mhtCharset=UTF-8&mhtCurrencyType=156&mhtOrderAmt=1&mhtOrderName=mhtOrderName&mhtOrderNo=20201106172037ActiveTest&mhtOrderStartTime=20201106172037&mhtOrderTimeOut=3600&mhtOrderType=01&mhtReserved=mhtReserved&nowPayOrderNo=200301202011061720378635069&oriMhtOrderAmt=1&payChannelType=12&payConsumerId=2088912927599908&payTime=20201106172049&signType=MD5&signature=a0892df50fdd17e267798ff5b0014fae&transStatus=A001&version=1.0.0");
-        list.add("appId=157318451507018&channelOrderNo=2020110622001499901452351942&deviceType=14&discountAmt=0&funcode=N001&mhtCharset=UTF-8&mhtCurrencyType=156&mhtOrderAmt=1&mhtOrderName=mhtOrderName&mhtOrderNo=AliPay_202011061281&mhtOrderStartTime=20201106135212&mhtOrderTimeOut=3600&mhtOrderType=05&mhtReserved=%E4%BF%9D%E7%95%99%E5%9F%9F666&nowPayOrderNo=c202506202011061352130568315&oriMhtOrderAmt=1&payChannelType=12&payTime=20201106135227&signType=MD5&signature=f7d2c43a944557b679875cc9c725cf27&transStatus=A001&version=1.0.0");
-
-        List<String> list1 = ResultTransShow("","",list);
-
-        for (String s :list1){
-            System.out.println(s);
-        }
     }
 }

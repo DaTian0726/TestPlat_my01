@@ -68,7 +68,7 @@ public class TradeService {
         //封装数据报文
         Map<String, String> result = new HashMap<>();
         result.put("request", JSON.toJSONString(wp001, true));
-        result.put("response", response);
+        result.put("response", JSON.toJSONString(SpiltSpringUtil.StringToJson(response),true));
         result.put("img", SpiltSpringUtil.JsonSys_resp(img));
         result.put("state", tradeModel.getOutputType());
         return result;

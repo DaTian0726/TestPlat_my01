@@ -14,6 +14,7 @@ public enum ChannelTypeEnum {
         this.desc = desc;
     }
 
+        
     public String getValue() {
         return value;
     }
