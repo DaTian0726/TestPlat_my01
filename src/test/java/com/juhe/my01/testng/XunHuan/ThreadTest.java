@@ -82,6 +82,9 @@ public class ThreadTest {
 //        System.out.println(result);
 //        System.out.println("---------------------------  JSON视图  ---------------------------");
         System.out.println(result);
+
+
+
     }
 
 }

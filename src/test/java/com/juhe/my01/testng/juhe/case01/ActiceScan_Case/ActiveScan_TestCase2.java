@@ -6,6 +6,9 @@ import com.juhe.my01.toapi.API_Version;
 import com.juhe.my01.utils.TestSign;
 import org.testng.annotations.Test;
 
+import java.util.HashMap;
+import java.util.Hashtable;
+
 /**
  * 主扫测试
  * 测试环境地址：https://dby.ipaynow.cn/api/payment/
@@ -32,7 +35,7 @@ public class ActiveScan_TestCase2 {
         js.put("outputType", "0");// 0 返回二维码  1 返回支付链接
         JSONObject ob = API_Version.RequestApi(js);
         System.out.println("返回结果----\n" + ob.getString("body"));
-        //对返回结果进行验签
+//        对返回结果进行验签
         String flag = TestSign.CheckSignMD5(ob.getString("body"),"qiMP78S5HHvHEmFUcrr9kOG4wngkrXos");
         System.out.println(flag);
 

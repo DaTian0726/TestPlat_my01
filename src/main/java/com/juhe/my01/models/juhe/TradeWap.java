@@ -13,7 +13,7 @@ public class TradeWap {
     public static JSONObject Wap_WP001() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("canal", "支付宝-ISV");//渠道
-        jsonObject.put("url", "https://pay.ipaynow.cn/");//请求地址
+        jsonObject.put("url", "https://dby.ipaynow.cn/");//请求地址
         jsonObject.put("appId", "147868777472129");
         jsonObject.put("appKey", "1FZMAlAplOTamX6OARDVV8hrswhbGEVg");
         jsonObject.put("payChannelType", "");
@@ -28,7 +28,7 @@ public class TradeWap {
         jsonObject.put("mhtOrderDetail", "订单详情");
         jsonObject.put("mhtOrderTimeOut", "3600");
         jsonObject.put("mhtOrderStartTime", GetNowTime.NowTime());
-        jsonObject.put("notifyUrl", "http://mock-api.com/0ZzRmXKe.mock/qqq");
+        jsonObject.put("notifyUrl", "http://mock-api.com/VnZ894zw.mock/payNotify");
         jsonObject.put("frontNotifyUrl", "http://posp.ipaynow.cn:10808/mobilewapH/frontnotify");
         jsonObject.put("mhtCharset", "UTF-8");
         jsonObject.put("deviceType", "0601");
@@ -53,7 +53,7 @@ public class TradeWap {
     public static JSONObject Wap_MQ002() {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("canal", "支付宝-ISV");//渠道
-        jsonObject.put("url", "https://pay.ipaynow.cn/");//请求地址
+        jsonObject.put("url", "https://dby.ipaynow.cn/");//请求地址
         jsonObject.put("appId", "147868777472129");
         jsonObject.put("appKey", "1FZMAlAplOTamX6OARDVV8hrswhbGEVg");
         jsonObject.put("mhtOrderNo", "");

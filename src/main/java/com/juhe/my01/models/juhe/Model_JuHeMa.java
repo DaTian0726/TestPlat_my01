@@ -23,7 +23,7 @@ public class Model_JuHeMa {
         js.put("mhtOrderDetail","mhtOrderDetail");
         js.put("mhtOrderTimeOut","3600");
         js.put("mhtOrderStartTime",GetNowTime.NowTime());
-        js.put("notifyUrl","http://mock-api.com/dno4ooKX.mock/qqq");
+        js.put("notifyUrl","http://mock-api.com/VnZ894zw.mock/payNotify");
         js.put("mhtCharset","UTF-8");
         js.put("deviceType","20");
         js.put("mhtReserved","mhtReserved");
@@ -32,6 +32,7 @@ public class Model_JuHeMa {
         js.put("mhtGoodsTag","");
         js.put("mhtSignType","MD5");
         js.put("mhtSignature","");
+        js.put("payChannelType","12");
         return js;
     }
     /**

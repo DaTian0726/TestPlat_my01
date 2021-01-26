@@ -14,7 +14,7 @@
         <#include "../common/menu.ftl">
         <div class="col-md-9" style="padding: 0px 0px 0px 0px;">
             <h3 class="text-center text-info">
-                聚合码测试Demo</h3>
+                公众号测试Demo</h3>
             <HR align=center width=100% color=#987cb9 SIZE=1>
             <form class="form-horizontal" role="form" action="mediaPay" method="post">
                 <div class="form-group">
@@ -31,6 +31,7 @@
                         <select class="form-control" name="Service">
                             <option name="juhe" value="juhe">公有云</option>
                             <option name="cmb" value="cmb">招商云</option>
+                            <option name="zg" value="zg">紫光云</option>
                         </select>
                     </div>
                 </div>
@@ -93,6 +94,12 @@
                     <label for="inputPassword3" class="col-sm-3 control-label">版本号</label>
                     <div class="col-sm-9">
                         <input type="text" class="form-control" name="version" value="${(mediaModel.version)!''}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputPassword3" class="col-sm-3 control-label">支付类型</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" name="payChannelType" value="${(mediaModel.payChannelType)!''}"/>
                     </div>
                 </div>
                 <div class="form-group">

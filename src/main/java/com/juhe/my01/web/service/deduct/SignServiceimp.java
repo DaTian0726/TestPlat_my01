@@ -88,7 +88,7 @@ public class SignServiceimp {
         String result = Undecode_util.res(responseData);
         Map map = new HashMap();
         map.put("request", JSON.toJSONString(mainJson,true));
-        map.put("response",result);
+        map.put("response",JSON.toJSONString(JSON.parseObject(result),true));
 
         //提取H5和公众号支付链接
         JsonParser jp = new JsonParser();
@@ -149,7 +149,7 @@ public class SignServiceimp {
         System.out.println("返回结果：" + responseData);
         Map map = new HashMap();
         map.put("request", JSON.toJSONString(mainJson,true));
-        map.put("response",responseData);
+        map.put("response",JSON.toJSONString(JSON.parseObject(responseData),true));
         map.put("img","");
         return map;
     }
@@ -191,7 +191,7 @@ public class SignServiceimp {
         }
         Map map = new HashMap();
         map.put("request", JSON.toJSONString(mainJson,true));
-        map.put("response",responseData);
+        map.put("response",JSON.toJSONString(JSON.parseObject(responseData),true));
         map.put("img","");
         return map;
     }

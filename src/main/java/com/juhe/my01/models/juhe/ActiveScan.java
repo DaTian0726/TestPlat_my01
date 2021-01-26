@@ -18,7 +18,7 @@ public class ActiveScan {
         js.put("mhtOrderDetail","mhtOrderDetail");
         js.put("mhtOrderTimeOut","3600");
         js.put("mhtOrderStartTime", GetNowTime.NowTime());
-        js.put("notifyUrl","http://mock-api.com/dno4ooKX.mock/qqq");//
+        js.put("notifyUrl","http://mock-api.com/VnZ894zw.mock/payNotify");//
         js.put("frontNotifyUrl","http://mock-api.com/dno4ooKX.mock/qqq");
         js.put("mhtCharset","UTF-8");
         js.put("deviceType","08");//扫码支付

@@ -18,11 +18,11 @@ public class MediaPay {
         js.put("mhtOrderDetail","订单详情");
         js.put("mhtOrderTimeOut","3600");
         js.put("mhtOrderStartTime",GetNowTime.NowTime());
-        js.put("notifyUrl","http://mock-api.com/0ZzRmXKe.mock/qqq");
+        js.put("notifyUrl","http://mock-api.com/VnZ894zw.mock/payNotify");
         js.put("frontNotifyUrl","");
         js.put("mhtCharset","UTF-8");
         js.put("deviceType","0600");
-        js.put("payChannelType","");
+        js.put("payChannelType","12");
         js.put("mhtReserved","保留域");
         js.put("outputType","");
         js.put("mhtSubAppId","");

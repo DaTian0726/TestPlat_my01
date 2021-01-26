@@ -39,8 +39,14 @@ public class WeChatService {
         wp001.put("mhtOrderDetail", weChatPayModel.getMhtOrderDetail());
         wp001.put("mhtOrderTimeOut", weChatPayModel.getMhtOrderTimeOut());
         wp001.put("notifyUrl", weChatPayModel.getNotifyUrl());
-        wp001.put("consumerId", weChatPayModel.getConsumerId());
-        wp001.put("mhtSubAppId", weChatPayModel.getMhtSubAppId());
+        wp001.put("consumerId",weChatPayModel.getConsumerId());
+        if(weChatPayModel.getPayChannelType().equals("12")){
+            wp001.put("mhtSubAppId","");
+
+        }else {
+            wp001.put("consumerId", weChatPayModel.getConsumerId());
+        }
+
         JSONObject ob = new JSONObject();
         JSONObject res = new JSONObject();
 

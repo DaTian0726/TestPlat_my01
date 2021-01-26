@@ -21,14 +21,14 @@ public class TradeModel {
     private String outputType = "1";
     private String url;
     private String version = "1.0.0";
-    private String appId = "148972242878838";
-    private String appKey = "p1AJ0Bb7AwgBy3iPO1JjJsPspmXok8yz";
+    private String appId = "161059515751715";
+    private String appKey = "7yd2Y5qqhRKvjE36HxuFTU8bS1hr3Nxm";
     private String consumerCreateIp = "60.253.242.122";
     private String mhtOrderName = "mhtOrderName";
     private String mhtOrderAmt = "1";
     private String mhtOrderDetail = "mhtOrderDetail";
     private String mhtOrderTimeOut = "3600";
-    private String notifyUrl = "http://ipaynow.natapp1.cc/asyn";
+    private String notifyUrl = "http://mock-api.com/VnZ894zw.mock/payNotify";
     private String payChannelType = "12";
     private String mhtLimitPay = "0";
 

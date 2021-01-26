@@ -2,6 +2,7 @@ package com.juhe.my01.web.service.deduct;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.JsonObject;
 import com.juhe.my01.utils.GetNowTime;
 import com.juhe.my01.utils.RSAUtils;
 import com.juhe.my01.utils.StandardHttpClientUtil;
@@ -74,7 +75,7 @@ public class DeductService {
         }
         Map map = new HashMap();
         map.put("request", JSON.toJSONString(mainJson,true));
-        map.put("response",responseData);
+        map.put("response",JSON.toJSONString(JSON.parseObject(responseData),true));
         map.put("img","");
         return map;
     }
@@ -112,7 +113,7 @@ public class DeductService {
         }
         Map map = new HashMap();
         map.put("request", JSON.toJSONString(mainJson,true));
-        map.put("response",responseData);
+        map.put("response",JSON.toJSONString(JSON.parseObject(responseData),true));
         map.put("img","");
         return map;
     }

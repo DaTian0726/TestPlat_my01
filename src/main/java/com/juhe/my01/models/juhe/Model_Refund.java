@@ -20,7 +20,7 @@ public class Model_Refund {
         js.put("amount", "1");
         js.put("reason", "refund-test");
         js.put("mhtCharset", "UTF-8");
-        js.put("notifyUrl", "http://mock-api.com/dno4ooKX.mock/qqq");
+        js.put("notifyUrl", "http://mock-api.com/VnZ894zw.mock/payNotify");
         js.put("signType", "MD5");
         js.put("mhtSignature", "");
         return js;

@@ -17,34 +17,34 @@
                     <a href="/cardPay?state=huifu" class="dropdown-toggle"  >聚合交易
                         <span class="caret"></span></a>
                 </li>
-                <li class="dropdown">
-                    <a href="/CMBActivePay" class="dropdown-toggle" data-toggle="dropdown">招商银行
-                        <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-<#--                        <li class="dropdown-header">招商云交易</li>-->
-<#--                        <li><a href="/CMBActivePay" >主扫系统</a></li>-->
-<#--                        <li><a href="/CMBBarcodePay" >被扫系统</a></li>-->
-<#--                        <li><a href="/CMBTradePay" >H5系统</a></li>-->
-<#--                        <li><a href="/CMBRefund" >退款系统</a></li>-->
-<#--                        <li><a href="/CMBWeChatPay" >小程序系统</a></li>-->
-<#--                        <li><a href="/CMBJuHeMaPay" >聚合动态码</a></li>-->
-<#--                        <li class="divider"></li>-->
-                        <li class="dropdown-header">招商系统</li>
-                        <li><a href="http://192.168.101.102:8081/cmb_dubbo_http_adapter/app_biz_center" target="_blank">应用中心测试</a></li>
-                        <li><a href="https://mch.aggreg.cmbchina.com/cmb_dubbo_http_adapter/" target="_blank">应用中心生产</a></li>
-                        <li><a href="https://mch.aggreg.cmbchina.com/login" target="_blank">招商商户后台生产</a></li>
-                        <li><a href="https://op.aggreg.cmbchina.com/login" target="_blank">招商运营后台生产</a></li>
-                    </ul>
-                </li>
+<#--                <li class="dropdown">-->
+<#--                    <a href="/CMBActivePay" class="dropdown-toggle" data-toggle="dropdown">招商银行-->
+<#--                        <span class="caret"></span></a>-->
+<#--                    <ul class="dropdown-menu">-->
+<#--&lt;#&ndash;                        <li class="dropdown-header">招商云交易</li>&ndash;&gt;-->
+<#--&lt;#&ndash;                        <li><a href="/CMBActivePay" >主扫系统</a></li>&ndash;&gt;-->
+<#--&lt;#&ndash;                        <li><a href="/CMBBarcodePay" >被扫系统</a></li>&ndash;&gt;-->
+<#--&lt;#&ndash;                        <li><a href="/CMBTradePay" >H5系统</a></li>&ndash;&gt;-->
+<#--&lt;#&ndash;                        <li><a href="/CMBRefund" >退款系统</a></li>&ndash;&gt;-->
+<#--&lt;#&ndash;                        <li><a href="/CMBWeChatPay" >小程序系统</a></li>&ndash;&gt;-->
+<#--&lt;#&ndash;                        <li><a href="/CMBJuHeMaPay" >聚合动态码</a></li>&ndash;&gt;-->
+<#--&lt;#&ndash;                        <li class="divider"></li>&ndash;&gt;-->
+<#--                        <li class="dropdown-header">招商系统</li>-->
+<#--                        <li><a href="http://192.168.101.102:8081/cmb_dubbo_http_adapter/app_biz_center" target="_blank">应用中心测试</a></li>-->
+<#--                        <li><a href="https://mch.aggreg.cmbchina.com/cmb_dubbo_http_adapter/" target="_blank">应用中心生产</a></li>-->
+<#--                        <li><a href="https://mch.aggreg.cmbchina.com/login" target="_blank">招商商户后台生产</a></li>-->
+<#--                        <li><a href="https://op.aggreg.cmbchina.com/login" target="_blank">招商运营后台生产</a></li>-->
+<#--                    </ul>-->
+<#--                </li>-->
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">工具包
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="/des" >清结算DES解密</a></li>
                         <li><a href="/url"  >Undecode工具</a></li>
-                        <li><a href="#" >验签工具</a></li>
-<#--                        <li><a href="https://cli.im/"  target="_blank">草料二维码</a></li>-->
-<#--                        <li><a href="http://mock-api.com/app.html#!/mocker-dashboard" target="_blank">mock_api</a></li>-->
+<#--                        <li><a href="#" >验签工具</a></li>-->
+                        <li><a href="https://cli.im/"  target="_blank">草料二维码</a></li>
+                        <li><a href="http://mock-api.com/app.html#!/mocker-dashboard" target="_blank">mock_api</a></li>
                         <li><a href="https://devtools.lilbaby.cn/dashboard#/idcard/index" target="_blank">coder烂笔头</a></li>
                     </ul>
                 </li>
@@ -101,10 +101,10 @@
 <#--                        <li><a href="#" >API接口回归</a></li>-->
                     </ul>
                 </li>
-                <li>
-                    <a href="#" class="dropdown-toggle" >佳薪棠
-                        <span class="caret"></span></a>
-                </li>
+<#--                <li>-->
+<#--                    <a href="#" class="dropdown-toggle" >MySQL自助-->
+<#--                        <span class="caret"></span></a>-->
+<#--                </li>-->
                 <li>
                     <a href="/monitor" class="dropdown-toggle"  >监控系统
                         <span class="caret"></span></a>
@@ -118,7 +118,7 @@
                         <li><a href="http://sonar.ipaynow.cn/" target="_blank">Sonar</a></li>
                         <li><a href="http://code.ipaynow.cn:8089/login?from=%2F" target="_blank">Jenkins</a></li>
                         <li><a href="http://posp.ipaynow.cn:10808/QRCSample/" target="_blank">银联仿真码</a></li>
-
+                        <li><a href=http://posp.ipaynow.cn:10808/juhePayTest/index.jsp" target="_blank">(旧)聚合测试平台</a></li>
                     </ul>
                 </li>
             </ul>

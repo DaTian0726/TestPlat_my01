@@ -2,6 +2,7 @@ package com.juhe.my01.web.service.juhe;
 
 import com.juhe.my01.utils.EnumTransUtil;
 import org.apache.commons.lang3.StringUtils;
+import org.testng.annotations.Test;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedReader;
@@ -56,7 +57,15 @@ public class NotifyService {
             for (String key : keys){
                 String[] res =  key.split("=");
                 //将获取的参数保存
-                resultMap.put(res[0],res[1]);
+                if(res.length == 1){
+                    resultMap.put(res[0],"");
+                }else {
+                    resultMap.put(res[0],res[1]);
+                }
+            }
+            if(!resultMap.containsKey("deviceType")){
+                resultMap.put("deviceType","R001");
+                resultMap.put("payChannelType","12");
             }
             //拼接结果字符
             if(StringUtils.isNotBlank(transId) || StringUtils.isNotBlank(mhtOrderNo)){
@@ -70,4 +79,5 @@ public class NotifyService {
         //返回显示
         return resList;
     }
+
 }

@@ -42,8 +42,8 @@ public class JuHePayController {
     @GetMapping("/activePay")
     public ModelAndView ActivePayGet(Map<String,Object> map){
         ActiveModel activeModel = new ActiveModel();
-        activeModel.setAppId("151796928333342");
-        activeModel.setAppKey("HvqggU9C97XLvUsjX1g3tRSU1UDs6xkD");
+        activeModel.setAppId("152756470127858");
+        activeModel.setAppKey("H6pcftsbad9GImomudOYAhNJDVUiTcTq");
         map.put("activeModel",activeModel);
         return new ModelAndView("juhe/activePay",map);
     }
@@ -65,8 +65,8 @@ public class JuHePayController {
     @GetMapping("/barcodePay")
     public ModelAndView BarcodePayGet(Map<String,Object> map){
         BarcodeModel barcodeModel = new BarcodeModel();
-        barcodeModel.setAppId("151796932500416");
-        barcodeModel.setAppKey("4jl50MQ9hkH2S8y63rf1zwW7rhJ9MpBd");
+        barcodeModel.setAppId("160922204184042");
+        barcodeModel.setAppKey("2jMS7NnjwJg0zLqHqMcKVrkyro3MqmuK");
         map.put("barcodeModel",barcodeModel);
         return new ModelAndView("juhe/barcodePay",map);
     }
@@ -75,21 +75,45 @@ public class JuHePayController {
      * 聚合码业务系统逻辑
      * @param request
      * @param response
-     * @param mediaModel
+     * @param mediaJuHeMaModel
+     * @return
+     */
+
+    @PostMapping("/mediaPay_JuHeMa")
+    public ModelAndView MediaPayJuHeMaPost(HttpServletRequest request, HttpServletResponse response , MediaJuHeMaModel mediaJuHeMaModel , Map map){
+        MediaJuHeMaService mediaJuHeMaService = new MediaJuHeMaService();
+        mediaJuHeMaModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(mediaJuHeMaService.Media(mediaJuHeMaModel)));
+    }
+    @GetMapping("/mediaPay_JuHeMa")
+    public ModelAndView MediaPayJuHeMaGet(Map map){
+        MediaJuHeMaModel mediaModel = new MediaJuHeMaModel();
+        mediaModel.setAppId("156517474833930");
+        mediaModel.setAppKey("WN13LDFjir9t9B0d3ZN0ySmpdL9AMEfU");
+        map.put("mediaModel",mediaModel);
+        return new ModelAndView("juhe/mediaPay_JuHeMa",map);
+    }
+
+
+    /**
+     * 公众号业务系统逻辑
+     * @param request
+     * @param response
+     * @param mediaJuHeMaModel
      * @return
      */
 
     @PostMapping("/mediaPay")
-    public ModelAndView MediaPayPost(HttpServletRequest request, HttpServletResponse response , MediaModel mediaModel , Map map){
-        MediaService mediaService = new MediaService();
-        mediaModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
-        return new ModelAndView("common/result",InitMap(mediaService.Media(mediaModel)));
+    public ModelAndView MediaPayPost(HttpServletRequest request, HttpServletResponse response , MediaJuHeMaModel mediaJuHeMaModel , Map map){
+        MediaJuHeMaService mediaService = new MediaJuHeMaService();
+        mediaJuHeMaModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
+        return new ModelAndView("common/result",InitMap(mediaService.Media(mediaJuHeMaModel)));
     }
     @GetMapping("/mediaPay")
     public ModelAndView MediaPayGet(Map map){
-        MediaModel mediaModel = new MediaModel();
-        mediaModel.setAppId("160517818332835");
-        mediaModel.setAppKey("tLzNOPEubRbyTJRVPN7GbqIgGcHavJtJ");
+        MediaJuHeMaModel mediaModel = new MediaJuHeMaModel();
+        mediaModel.setAppId("156517474833930");
+        mediaModel.setAppKey("WN13LDFjir9t9B0d3ZN0ySmpdL9AMEfU");
         map.put("mediaModel",mediaModel);
         return new ModelAndView("juhe/mediaPay",map);
     }
@@ -122,7 +146,11 @@ public class JuHePayController {
     }
     @GetMapping("/tradePay")
     public ModelAndView TradePayGet(Map map){
-        map.put("tradeModel",new TradeModel());
+        TradeModel tradeModel = new TradeModel();
+        tradeModel.setAppId("153429926277911");
+        tradeModel.setAppKey("el9ztwDnmBFYMqmAvODnhsbMPVUuKg8D");
+        tradeModel.setPayChannelType("13");
+        map.put("tradeModel",tradeModel);
         return new ModelAndView("juhe/tradePay",map);
     }
 
@@ -138,11 +166,15 @@ public class JuHePayController {
     public ModelAndView RefundPost(HttpServletRequest request, HttpServletResponse response , RefundModel refundModel, Map map){
         RefundService refundService = new RefundService();
         refundModel.setUrl(EnumTransUtil.TransEnum(request.getParameter("URL"),request.getParameter("Service")));
-        return new ModelAndView("common/result",InitMap(refundService.Refund(refundModel)));
+        return new ModelAndView("common/result",InitMap(refundService.Refund(refundModel,request.getParameter("Service"))));
     }
     @GetMapping("/refund")
     public ModelAndView RefundGet(Map map){
-        map.put("refundModel",new RefundModel());
+        RefundModel refundModel = new RefundModel();
+        refundModel.setAppKey("7yd2Y5qqhRKvjE36HxuFTU8bS1hr3Nxm");
+        refundModel.setAppId("161059515751715");
+        map.put("refundModel",refundModel);
+
     return new ModelAndView("juhe/refund");
     }
 
@@ -168,19 +200,14 @@ public class JuHePayController {
 
     /**
      * 监控业务系统逻辑
-     * @param request
-     * @param response
-     * @param activeModel
+     * @param
+     * @param
+     * @param
      * @return
      */
-
-    @PostMapping("/monitor")
-    public ModelAndView MonitorPost(HttpServletRequest request, HttpServletResponse response ,ActiveModel activeModel){
-        return new ModelAndView("juhe/monitor");
-    }
     @GetMapping("/monitor")
     public ModelAndView MonitorGet(){
-        return new ModelAndView("juhe/monitor");
+        return new ModelAndView("juhe/monitor/ipaynow-op");
     }
 
     /**

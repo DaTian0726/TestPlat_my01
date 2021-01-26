@@ -20,7 +20,7 @@ public class Barcode {
         object.put("funcode", "WP001");
         object.put("version", "");
         object.put("mhtSubMchId", "");
-        object.put("mhtOrderNo", GetNowTime.NowTime() + "Test");
+        object.put("mhtOrderNo", "2009"+GetNowTime.NowTime() + "BarTest");
         object.put("mhtOrderName", "mhtOrderName");
         object.put("mhtOrderType", "01");
         object.put("mhtCurrencyType", "156");

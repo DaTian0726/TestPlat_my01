@@ -31,6 +31,7 @@
                         <select class="form-control" name="Service">
                             <option name="juhe" value="juhe">公有云</option>
                             <option name="cmb" value="cmb">招商云</option>
+                            <option name="zg" value="zg">紫光云</option>
                         </select>
                     </div>
                 </div>

@@ -2,7 +2,9 @@ package com.juhe.my01.utils;
 
 import com.juhe.my01.web.controller.URLEnum;
 import org.apache.commons.lang3.StringUtils;
+import org.testng.annotations.Test;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -23,7 +25,6 @@ public class EnumTransUtil {
      */
 
     public static String ResultShow(Map map){
-
         switch ((String) map.get("deviceType")){
             case "01" :
                 map.put("deviceType","手机SDK系统");
@@ -52,6 +53,9 @@ public class EnumTransUtil {
             case "11" :
                 map.put("deviceType","POS系统");
                 break;
+            case "R001" :
+                map.put("deviceType","退款系统");
+                break;
         }
 
         switch ((String) map.get("payChannelType")){
@@ -65,6 +69,12 @@ public class EnumTransUtil {
                 map.put("payChannelType","银联");
                 break;
         }
+        if(!map.containsKey("mhtOrderStartTime")){
+            map.put("mhtOrderStartTime",map.get("refundTime"));
+        }
+        if(!map.containsKey("oriMhtOrderAmt")){
+            map.put("oriMhtOrderAmt",map.get("amount"));
+        }
 
         //模板：2020-11-06 17:56:55 【XXX系统】-【交易号为XXX】-【订单号为XXX】使用XXX支付XXX元 -- 商户异步通知接受正常
         return GetNowTime.ToNowTime((String)map.get("mhtOrderStartTime"))
@@ -77,33 +87,38 @@ public class EnumTransUtil {
                 + ""
                 + "使用" + map.get("payChannelType") + "支付"
                 + ""
-                + map.get("oriMhtOrderAmt") + "元"
+                + map.get("oriMhtOrderAmt") + "分"
                 + " -- 商户异步通知接受正常";
     }
 
     public static String TransEnum(String URL,String Service){
-
-        if(StringUtils.isNotBlank(URL) || StringUtils.isNotBlank(Service)){
-            if(URL.equals("test")&&Service.equals("juhe")){
-                return URLEnum.JUHE_TEST.getURl();
-            }else if(URL.equals("pre")&&Service.equals("juhe")){
-                return URLEnum.JUHE_PRE.getURl();
-            }else if(URL.equals("line")&&Service.equals("juhe")){
-                return URLEnum.JUHE_LINE.getURl();
-            }else if (URL.equals("test")&&Service.equals("cmb")){
-                return URLEnum.CMB_TEST.getURl();
-            }else if(URL.equals("pre")&&Service.equals("cmb")){
-                return URLEnum.CMB_PRE.getURl();
-            }else {
-                return URLEnum.CMB_LINE.getURl();
-            }
-        }else {
-            return "";
+        HashMap<String,String> Urlmap = new HashMap();
+        //API地址
+        Urlmap.put("juhe_test",URLEnum.JUHE_TEST.getURl());
+        Urlmap.put("juhe_pre",URLEnum.JUHE_PRE.getURl());
+        Urlmap.put("juhe_line",URLEnum.JUHE_LINE.getURl());
+        Urlmap.put("cmb_test",URLEnum.CMB_TEST.getURl());
+        Urlmap.put("cmb_pre",URLEnum.CMB_PRE.getURl());
+        Urlmap.put("cmb_line",URLEnum.CMB_LINE.getURl());
+        Urlmap.put("zg_test",URLEnum.ZG_TEST.getURl());
+        Urlmap.put("zg_line",URLEnum.ZG_LINE.getURl());
+        //退款地址
+        Urlmap.put("juhe_refund-test",URLEnum.JUHE_REFUND_TEST.getURl());
+        Urlmap.put("juhe_refund-pre",URLEnum.JUHE_REFUND_PRE.getURl());
+        Urlmap.put("juhe_refund-line",URLEnum.JUHE_REFUND_LINE.getURl());
+        Urlmap.put("cmb_refund-test",URLEnum.CMB_REFUND_TEST.getURl());
+        Urlmap.put("cmb_refund-pre",URLEnum.CMB_REFUND_PRE.getURl());
+        Urlmap.put("cmb_refund-line",URLEnum.CMB_REFUND_LINE.getURl());
+        Urlmap.put("zg_refund-test",URLEnum.ZG_REFUND_TEST.getURl());
+        Urlmap.put("zg_refund-line",URLEnum.zg_refund_line.getURl());
+        //拼接地址并装换
+        String Urlmsg = Service + "_" + URL;
+        if(Urlmap.get(Urlmsg) == null){
+            return "error";
         }
-
-
+        System.out.println(" -- -- -- -- -- 请求地址为：  " + Urlmap.get(Urlmsg));
+        return Urlmap.get(Urlmsg);
     }
-
 
 
 }

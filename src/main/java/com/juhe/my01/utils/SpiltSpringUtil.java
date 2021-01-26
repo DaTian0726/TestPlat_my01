@@ -29,14 +29,19 @@ public class SpiltSpringUtil {
         String[] resp = a.split("&");
         for (int i = 0;i<resp.length;i++){
             String[] res = resp[i].split("=");
-            jsonObject.put(res[0],res[1]);
+            if(res.length == 1){
+                jsonObject.put(res[0],"");
+            }else{
+                jsonObject.put(res[0],res[1]);
+            }
+
         }
         return jsonObject;
     }
 
     @Test
     public void test(){
-        System.out.println(JSON.toJSONString(StringToJson("funcode=WP001&signature=1ba50c549ad2a909821721a4249b33c0&responseTime=20200903161647&mhtOrderNo=20200903161646Test&appId=148972242878838&signType=MD5&nowPayOrderNo=c200601202009031616453785785&tn=https://qr.alipay.com/bax083828y8cptsvcqzg002b&version=1.0.0&responseCode=A001&responseMsg=E000#成功[成功]"),true));
+        System.out.println(JSON.toJSONString(StringToJson("amount=1&appId=154831563347656&funcode=R001&mhtCharset=UTF-8&mhtOrderNo=20200922165617Test&mhtRefundNo=20201117140547Refund&nowPayOrderNo=&reason=refund-test&responseCode=R026&responseMsg=商户应用ID不正确&responseTime=20201117140630&signType=MD5&signature=&tradeStatus=A002&version=1.0.0"),true));
 
     }
 }

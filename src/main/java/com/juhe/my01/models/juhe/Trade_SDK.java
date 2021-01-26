@@ -18,7 +18,7 @@ public class Trade_SDK {
         js.put("mhtOrderDetail","订单详情");
         js.put("mhtOrderTimeOut","3600");
         js.put("mhtOrderStartTime",GetNowTime.NowTime());
-        js.put("notifyUrl","http://mock-api.com/0ZzRmXKe.mock/qqq");
+        js.put("notifyUrl","http://mock-api.com/VnZ894zw.mock/payNotify");
         js.put("mhtCharset","UTF-8");
         js.put("deviceType","01");
         js.put("payChannelType","");

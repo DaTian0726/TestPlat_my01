@@ -43,14 +43,12 @@ public class Barcode01_WP001 {
     public void Test01() {
         JSONObject ob = Barcode.WP001Vars();
         ob.put("canal", "随行付-微信-生产");//渠道
-        ob.put("url", "https://tls-pay.ipaynow.cn/api_release/");//请求地址
-        ob.put("appId", "159844431675813");//应用ID
-        ob.put("appKey", "Mw6sulhJ3amQRwwqXfVn0KsKZ3Shvdi4");//应用Key
-        ob.put("channelAuthCode", "134609738467718887" +
-                        "" +
-                        ""
+        ob.put("url", "https://payapi.iqc-app.com");//请求地址
+        ob.put("appId", "160922204184042");//应用ID
+        ob.put("appKey", "2jMS7NnjwJg0zLqHqMcKVrkyro3MqmuK");//应用Key
+        ob.put("channelAuthCode", "285533819330379698"
                 );//支付码
-        ob.put("payChannelType", "13");
+        ob.put("payChannelType", "12");
         ob.put("notifyUrl", "http://mock-api.com/dno4ooKX.mock/qqq");//
         ob.put("version", "1.0.0");
         ob.put("mhtLimitPay", "");//

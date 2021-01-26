@@ -22,7 +22,7 @@ import java.util.Map;
  */
 public class RefundService {
 
-    public Map<String,String> Refund(RefundModel refundModel){
+    public Map<String,String> Refund(RefundModel refundModel,String Service){
 
         //拼接请求参数
         JSONObject js = Model_Refund.Refund_Var();
@@ -36,7 +36,11 @@ public class RefundService {
         }else {
             js.remove("oriTransId");
         }
-        js.put("version", refundModel.getVersion());
+        if(Service.equals("cmb") || Service.equals("zg")){
+            js.remove("version");
+        }else {
+            js.put("version", refundModel.getVersion());
+        }
         js.put("mhtRefundNo",refundModel.getMhtRefundNo());
         js.put("amount", refundModel.getAmount());
         js.put("funcode",refundModel.getFuncode());
@@ -47,7 +51,8 @@ public class RefundService {
         //封装数据报文
         Map<String,String> result = new HashMap<>();
         result.put("request", JSON.toJSONString(js,true));
-        result.put("response", JSON.toJSONString(SpiltSpringUtil.StringToJson(response),true));
+        System.out.println(response);
+        result.put("response",JSON.toJSONString(SpiltSpringUtil.StringToJson(response),true));
         result.put("img", SpiltSpringUtil.JsonSys_resp(response));
         result.put("state","");
 

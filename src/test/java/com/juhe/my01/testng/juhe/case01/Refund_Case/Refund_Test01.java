@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
  *
  */
 public class Refund_Test01 {
-    private final String Test_URL="http://192.168.99.54:8790/refund_access/refundOrder";
+    private final String Test_URL="https://pay.ipaynow.cn/refund/refundOrder";
     /**
      * 退款，不带版本号
      */
@@ -22,10 +22,10 @@ public class Refund_Test01 {
     public void Refund_Test(){
         JSONObject js= Model_Refund.Refund_Var();
         js.put("url", Test_URL);//请求地址
-        js.put("appId", "157535194884943");//应用ID
-        js.put("appKey", ".");//应用Key
-        js.put("mhtOrderNo", "20200706192538Test");
-        js.put("amount", "1");
+        js.put("appId", "147868777472129");//应用ID
+        js.put("appKey", "1FZMAlAplOTamX6OARDVV8hrswhbGEVg");//应用Key
+        js.put("mhtOrderNo", "2021012117250697081925");
+        js.put("amount", "100");
         JSONObject res = ToRefund.RequestApi(js);
         System.out.println("请求结果：" + Undecode_util.res(res.toString()));
     }
@@ -52,13 +52,14 @@ public class Refund_Test01 {
     public void Test03() {
         JSONObject ob = Model_Refund.Refund_Var();
         ob.put("url", Test_URL);//请求地址   api_release/
-        ob.put("appId", "148972242878838");//应用ID 156134538804645
-        ob.put("appKey", "p1AJ0Bb7AwgBy3iPO1JjJsPspmXok8yz");//应用Key rXuFW3RjJ4ppUSE0ItFcGXuo0tB8wM1D
+        ob.put("appId", "160825665139540");//应用ID 156134538804645
+        ob.remove("version");
+        ob.put("appKey", "rZ5OUc9jDTGwZBi8o26skkfensIvkNlW");//应用Key rXuFW3RjJ4ppUSE0ItFcGXuo0tB8wM1D
 //        ob.put("oriTransId", "c200216202009171943081568670");//支付原单进行退款  - 针对
-        ob.put("mhtOrderNo", "20201029141205Test"); //20200720162730Test
+        ob.put("mhtOrderNo", "T_2e7ef368-f131-4ddf-b966-f7ece041306e"); //20200720162730Test
 //        ob.put("mhtRefundNo", "20200709"+"B001");//仅仅撤销接口支持，支持相同撤销单号进行撤销
-        ob.put("amount", "5");
-        ob.put("funcode", "R001");
+        ob.put("amount", "1");
+        ob.put("funcode", "R002");
         ob.put("reason", "退款");
         JSONObject res = ToRefund.RequestApi(ob);
         System.out.println("请求结果：" + JSON.toJSONString(Undecode_util.res( res.getString("body")),true));
